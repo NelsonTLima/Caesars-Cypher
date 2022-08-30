@@ -33,28 +33,28 @@ def generate_new_alphabet(key):
 
 def create_dictionaire(key):
 	new_alphabet = generate_new_alphabet(key)
-	
+
 	dictionaire = {}
 	n = 0
 	for i in alphabet:
 		dictionaire[i] = new_alphabet[n]
 		n += 1
-	
+
 	return dictionaire
 
 def encrypt(key, msg):
 	msg = msg.lower()
 	dictionaire = create_dictionaire(key)
-	
+
 	encryption = []
-	
+
 	for i in msg:
 		if i in alphabet:
 			encryption.append(dictionaire[i])
 		else:
 			encryption.append(i)
 	encryption = ''.join(encryption)
-	
+
 	return encryption
 
 
@@ -79,7 +79,7 @@ while __name__ == '__main__':
 		clear_shell()
 		main = input ('Press 1 to encrypt and 2 to decrypt message:\n')
 		clear_shell()
-		
+
 		if main == '1':
 			key = input('Insert key. It must be a number between 1 and 25:\n')
 			clear_shell()
@@ -90,7 +90,7 @@ while __name__ == '__main__':
 				print(encrypt(key, msg))
 			except:
 				print('You have to put a valid key. It must be between 1 and 25.')
-		
+
 		else:
 			key = input('Insert key. It must be a number between 1 and 25:\n')
 			clear_shell()
@@ -101,5 +101,5 @@ while __name__ == '__main__':
 				print(decrypt(key, msg))
 			except:
 				print('You have to put a valid key. It must be between 1 and 25.')
-		
+
 		main = input('')
